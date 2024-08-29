@@ -4,7 +4,7 @@ run-name: Push to ${{ github.ref_name }} by @${{ github.actor }}
 on:
   push:
     branches:
-      - developer
+      - testCI
 
 jobs:
   test:
