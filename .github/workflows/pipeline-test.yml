@@ -2,9 +2,9 @@ name: Pipeline Test
 run-name: Push to ${{ github.ref_name }} by @${{ github.actor }}
 
 on:
-  push:
+  pull_request:
     branches:
-      - testCI
+      - developer
 
 jobs:
   test:
