@@ -14,7 +14,7 @@
 
 ## Sobre o Projeto
 
-Esta aplicação FastAPI tem o objetivo de interagir com o WhatsAPP.
+Esta aplicação FastAPI tem o objetivo de interagir com aplicações de envio de mensagem e enviar as mesmas para um backend processar.
 
 ## Funcionalidades
 
@@ -45,7 +45,7 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento local:
 
 2. Crie e ative um ambiente virtual:
     ````bash
-    python3 -m venv venv
+    python3 -m venv venv # No Windows: py -m venv venv
     source venv/bin/activate  # No Windows: venv\Scripts\activate
     ````
 3. Instale as dependências:
@@ -66,7 +66,7 @@ Depois de instalar as dependências, você pode executar a aplicação localment
     ````
     No ambiente de desenvolvimento também é possível executar com fastapi-cli
     ````bash
-    fastapi dev main.py
+    fastapi dev app/main.py
     ````
 2. Acesse a aplicação em seu navegador:
     - Swagger UI: http://127.0.0.1:8000/docs
