@@ -48,6 +48,14 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento local:
     python3 -m venv venv # No Windows: py -m venv venv
     source venv/bin/activate  # No Windows: venv\Scripts\activate
     ````
+
+    Caso o Windows acuse erro de permissão para ativar o ambiente virtual
+    execute o seguinte comando no powershell:
+    ```bash
+    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Scope CurrentUser
+    ```
+
+
 3. Instale as dependências:
     > Desenvolvimento
     ````bash
