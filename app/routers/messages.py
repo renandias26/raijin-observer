@@ -6,7 +6,6 @@ from requests import post
 
 router = APIRouter()
 
-
 @router.post("/send-message")
 async def send_message(req: Request, whapiSetting: WhapiSettings = Depends(get_WhapiSetting)):
     obj = json.loads(await req.json())
@@ -15,6 +14,7 @@ async def send_message(req: Request, whapiSetting: WhapiSettings = Depends(get_W
         to=obj['to'],
         body=obj['body']
     )
+
     payload = {
         "to": message.to,  # "120363217209632703@g.us" RaijinGroupID
         "body": message.body
