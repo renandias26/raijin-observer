@@ -8,30 +8,31 @@ class TypeEnum(BaseModel):
 
 class SendMessage(BaseModel):
     to: str
-    type: TypeEnum
-    content: str
-    media_text: str | None
-    quoted: str | None
-    view_once: bool | None
-    mentions: list[str]
+    type: TypeEnum | None = None
+    body: str
+    media_text: str | None = None
+    quoted: str | None = None
+    view_once: bool | None = None
+    mentions: list[str] | None = None
 
-class ReceivedMessage():
+class ReceivedMessage(BaseModel):
 
-    class quotedMap():
+    class quotedMap(BaseModel):
         author: str
         message_id: str
 
     message_id: str
     chat_id: str
-    message_from: str
-    from_name: str
-    to: str
+    from_number: str
+    from_name: str = None
+    to_number: str
     type: str
     content: str
-    media_text: str
-    quoted: quotedMap
-    view_once: str
-    mentions: list[str]
+    media_text: str = None
+    quoted: quotedMap = None
+    view_once: bool = False
+    mentions: list[str] = None
+    timestamp: int
 
 class WhappiMessage(BaseModel):  
     
@@ -46,6 +47,7 @@ class WhappiMessage(BaseModel):
         id: str
         text: textMap
         type: str
+        timestamp: int
 
     messages: list[message]
 
