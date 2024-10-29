@@ -25,7 +25,6 @@ class ReceivedMessage(BaseModel):
     chat_id: str
     from_number: str
     from_name: str = None
-    to_number: str
     type: str
     content: str
     media_text: str = None
@@ -33,6 +32,7 @@ class ReceivedMessage(BaseModel):
     view_once: bool = False
     mentions: list[str] = None
     timestamp: int
+    received: bool = True
 
 class WhappiMessage(BaseModel):  
     
