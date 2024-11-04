@@ -1,10 +1,12 @@
 import json
 from requests import post, get
 from fastapi import APIRouter, Depends, Request
+from dotenv import load_dotenv
 
 from ..schemas import SendMessage, WhappiMessage, Config, ReceivedMessage
 from ..config import WhapiSettings, get_WhapiSetting
 
+load_dotenv(override=True)
 router = APIRouter()
 
 @router.post("/send-message")
@@ -121,8 +123,18 @@ async def group_data(skip: int, take: int, whapiSetting: WhapiSettings = Depends
 
     return result
 
+@router.get('/config')
+async def get_config(whapiSetting: WhapiSettings = Depends(get_WhapiSetting)):
+    return whapiSetting
+
 @router.post('/config')
-async def config(config: Config, whapiSetting: WhapiSettings = Depends(get_WhapiSetting)):
+async def set_config(config: Config, whapiSetting: WhapiSettings = Depends(get_WhapiSetting)):
     whapiSetting.Token = config.token
     whapiSetting.Phone = config.phone
+    return
+
+@router.post('/reset-config')
+async def reset_config():
+    load_dotenv(override=True)
+    get_WhapiSetting.cache_clear()
     return
